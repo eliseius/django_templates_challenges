@@ -19,18 +19,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">Jack</th>
-              <td>✅</td>
-              <td>✅</td>
-              <td>❌</td>
-            </tr>
-            <tr>
-              <th scope="row">Jill</th>
-              <td>❌</td>
-              <td>❌</td>
-              <td>✅</td>
-            </tr>
+            {% for student in performances %}
+                <tr>
+                  <th scope="row">{{ student.student_name }}</th>
+                  <td>{{ student.week1_completed }}</td>
+                  <td>{{ student.week2_completed }}</td>
+                  <td>{{ student.week3_completed }}</td>
+                </tr>
+            {% endfor %}
           </tbody>
         </table>
       </article>
