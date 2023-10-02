@@ -20,12 +20,24 @@
           </thead>
           <tbody>
             {% for student in performances %}
-                <tr>
+              <tr>
                   <th scope="row">{{ student.student_name }}</th>
-                  <td>{{ student.week1_completed }}</td>
-                  <td>{{ student.week2_completed }}</td>
-                  <td>{{ student.week3_completed }}</td>
-                </tr>
+                  {% if student.week1_completed %}
+                      <td>✅</td>
+                  {% else %}
+                      <td>❌</td>
+                  {% endif %}
+                  {% if student.week2_completed %}
+                      <td>✅</td>
+                  {% else %}
+                      <td>❌</td>
+                  {% endif %}
+                  {% if student.week3_completed %}
+                      <td>✅</td>
+                  {% else %}
+                      <td>❌</td>
+                  {% endif %}
+              </tr>
             {% endfor %}
           </tbody>
         </table>
