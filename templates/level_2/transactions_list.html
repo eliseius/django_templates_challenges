@@ -14,7 +14,7 @@
   <body>
     <main class="container">
       <article>
-        <h2>{{ numb_transactions }} transactions to review</h2>
+        <h2> transactions to review</h2>
         <table>
           <thead>
             <tr>
@@ -28,22 +28,20 @@
           <tbody>
             {% for transaction in transactions %}
                 {% if transaction.can_be_fraud %}
-                    <tr class="dangerous">
-                      <th style="font-size: x-small">{{ transaction.id }}/th>
-                      <td>{{ transaction.submitted_at }}</td>
-                      <td>{{ transaction.amount }}</td>
-                      <td style="font-size: x-small">{{ transaction.receiver_id }}</td>
-                      <td>❌</td>
-                    </tr>
+                  <tr class="dangerous">
                 {% else %}
-                    <tr>
-                      <th style="font-size: x-small">{{ transaction.id }}/th>
-                      <td>{{ transaction.submitted_at }}</td>
-                      <td>{{ transaction.amount }}</td>
-                      <td style="font-size: x-small">{{ transaction.receiver_id }}</td>
-                      <td>✅</td>
-                    </tr>
+                  <tr>
                 {% endif %}
+                    <th style="font-size: x-small">{{ transaction.id }}</th>
+                    <td>{{ transaction.submitted_at }}</td>
+                    <td>{{ transaction.amount }}</td>
+                    <td style="font-size: x-small">{{ transaction.receiver_id }}</td>
+                {% if transaction.can_be_fraud %}
+                    <td>❌</td>
+                {% else %}
+                    <td>✅</td>
+                {% endif %}
+                  </tr>
             {% endfor %}
           </tbody>
         </table>
