@@ -27,21 +27,24 @@
           </thead>
           <tbody>
             {% for transaction in transactions %}
+              <tr
               {% if transaction.can_be_fraud %}
-                <tr class="dangerous">
+                  class="dangerous">
               {% else %}
-                    <tr>
+                  >
               {% endif %}
                   <th style="font-size: x-small">{{ transaction.id }}</th>
                   <td>{{ transaction.submitted_at }}</td>
                   <td>{{ transaction.amount }}</td>
                   <td style="font-size: x-small">{{ transaction.receiver_id }}</td>
+                  <td>
               {% if transaction.can_be_fraud %}
-                  <td>❌</td>
+                    ❌
               {% else %}
-                  <td>✅</td>
+                    ✅
               {% endif %}
-                  </tr>
+                  </td>
+              </tr>
             {% endfor %}
           </tbody>
         </table>
