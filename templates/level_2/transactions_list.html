@@ -29,10 +29,9 @@
             {% for transaction in transactions %}
               <tr
               {% if transaction.can_be_fraud %}
-                  class="dangerous">
-              {% else %}
-                  >
+                  class="dangerous"
               {% endif %}
+                >
                   <th style="font-size: x-small">{{ transaction.id }}</th>
                   <td>{{ transaction.submitted_at }}</td>
                   <td>{{ transaction.amount }}</td>
